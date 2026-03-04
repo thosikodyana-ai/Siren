@@ -8,7 +8,7 @@ binding = "SIREN"
 id = "2de3e2feb61f470191306c8b9b7bfc5c"
 
 [build]
-command = "cargo install worker-build@^0.1 && worker-build --release"
+command = "cargo install worker-build@0.7.5 && worker-build --release"
 
 [env.dev]
 build = { command = "cargo install worker-build && worker-build --dev" }
