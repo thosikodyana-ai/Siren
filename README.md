@@ -74,3 +74,4 @@ Siren can be deployed seamlessly using GitHub Actions with Cloudflare Workers.
 
 7. **Access Your Siren Instance**
    - Visit: `https://<YOUR-WORKERS-SUBDOMAIN>.workers.dev`
+  
