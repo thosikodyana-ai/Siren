@@ -1,7 +1,7 @@
 name = "siren"
 main = "build/worker/shim.mjs"
 compatibility_date = "2026-03-04"
-minify = true
+minify = false
 
 [[kv_namespaces]]
 binding = "SIREN"
