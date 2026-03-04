@@ -21,20 +21,17 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Cache worker-build
-        id: cache-worker-build
-        uses: actions/cache@v3
-        with:
-          path: ~/.cargo/bin/worker-build
-          key: ${{ runner.os }}-worker-build-0.7.5
+      # Kita hapus cache lama agar tidak ada konflik versi worker-build
+      - name: Clean Previous Builds
+        run: |
+          rm -rf build
+          rm -rf target
 
-      - name: Install worker-build
-        if: steps.cache-worker-build.outputs.cache-hit != 'true'
-        run: cargo install worker-build@0.7.5
+      - name: Install latest worker-build
+        run: cargo install worker-build
 
       - name: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          # Kita pakai versi 3 yang stabil tapi biarkan dia update sendiri
           wranglerVersion: '3.107.3'
